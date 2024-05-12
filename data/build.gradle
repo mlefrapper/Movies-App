@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.devtools.ksp'
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 19
+        targetSdk 34
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "BASE_URL", "\"https://movies-mock-server.vercel.app/\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    namespace 'com.mlefrapper.data'
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+
+    api project(":domain")
+
+    //Room
+    implementation libs.androidx.room.runtime
+    implementation libs.androidx.room.ktx
+    implementation libs.androidx.room.paging
+    implementation libs.androidx.paging.common.ktx
+    ksp libs.androidx.room.compiler
+
+    //Retrofit
+    implementation libs.retrofit
+    implementation libs.converter.gson
+    implementation libs.retrofit2.kotlin.coroutines.adapter
+
+    //Junit
+    testImplementation libs.junit
+
+    //Instrumentation
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+}

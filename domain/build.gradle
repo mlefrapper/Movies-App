@@ -1,0 +1,13 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation libs.androidx.paging.common.ktx
+
+    //Mockito
+    testImplementation libs.mockito.core
+    testImplementation libs.mockito.inline
+
+    //Junit
+    testImplementation libs.junit
+}
+

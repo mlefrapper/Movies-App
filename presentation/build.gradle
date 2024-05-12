@@ -1,0 +1,132 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.dagger.hilt.android'
+apply plugin: 'com.google.devtools.ksp'
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 34
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.13"
+    }
+
+    kotlinOptions {
+        freeCompilerArgs += ["-Xjvm-default=all",]
+    }
+
+    namespace 'com.mlefrapper.clean'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(":data")
+
+    //Kotlin
+    implementation libs.kotlin.stdlib.jdk7
+
+    //AndroidX
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+
+    //Extensions
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.lifecycle.extensions
+
+    // Timber
+    implementation libs.timber
+
+    //okHttp
+    implementation libs.okhttp
+    implementation libs.logging.interceptor
+
+    //GSON
+    implementation libs.gson
+
+    //Retrofit
+    implementation libs.retrofit
+    implementation libs.converter.gson
+    implementation libs.retrofit2.kotlin.coroutines.adapter
+
+    //Room
+    implementation libs.androidx.room.runtime
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    ksp libs.androidx.room.compiler
+
+    //Hilt
+    implementation libs.hilt.android
+    ksp libs.hilt.compiler
+    implementation libs.androidx.hilt.work
+
+    //Coroutines
+    implementation libs.kotlinx.coroutines.core
+    implementation libs.kotlinx.coroutines.android
+    testImplementation libs.kotlinx.coroutines.test
+
+    //Paging
+    implementation libs.androidx.paging.compose
+
+    //WorkManager
+    implementation libs.androidx.work.runtime.ktx
+
+    //Compose
+    implementation platform(libs.androidx.compose.bom)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.ui.util)
+    implementation(libs.androidx.animation)
+    implementation(libs.androidx.runtime)
+    implementation(libs.androidx.runtime.saveable)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.material.icons.extended)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    implementation libs.androidx.lifecycle.viewmodel.compose
+    implementation libs.accompanist.systemuicontroller
+
+    //Coil
+    implementation(libs.coil.compose)
+
+    //Navigation
+    implementation libs.androidx.navigation.compose
+    implementation libs.androidx.hilt.navigation.compose
+
+    //Mockito
+    testImplementation libs.mockito.core
+    testImplementation libs.mockito.inline
+
+    testImplementation libs.androidx.core.testing
+    testImplementation libs.junit
+    testImplementation libs.turbine
+    testImplementation libs.truth
+
+    androidTestImplementation libs.androidx.junit
+
+}
