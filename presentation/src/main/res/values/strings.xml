@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Clean</string>
+    <string name="app_name">Movies App</string>
     <string name="no_movies_found">There were no movies found.</string>
     <string name="no_favorite_movies_at_the_moment">There are no favorite movies\n on your list at the moment.</string>
+    <string name="overview_title">Overview</string>
+    <string name="search_title">Search</string>
 </resources>

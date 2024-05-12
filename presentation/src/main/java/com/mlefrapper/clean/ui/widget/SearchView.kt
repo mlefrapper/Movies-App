@@ -24,9 +24,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
+import com.mlefrapper.clean.R
 import com.mlefrapper.clean.ui.theme.colors
 import com.mlefrapper.clean.util.preview.PreviewContainer
 
@@ -49,7 +51,7 @@ fun SearchView(
                 .fillMaxWidth()
                 .focusRequester(focusRequester),
             placeholder = {
-                Text(text = "Search")
+                Text(text = LocalContext.current.getString(R.string.search_title))
             },
             value = query,
             onValueChange = {

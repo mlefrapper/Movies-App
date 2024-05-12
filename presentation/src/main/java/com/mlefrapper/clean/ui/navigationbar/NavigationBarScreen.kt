@@ -11,11 +11,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.mlefrapper.clean.R
 import com.mlefrapper.clean.ui.main.MainRouter
 import com.mlefrapper.clean.ui.theme.AppColor
 import com.mlefrapper.clean.ui.widget.BottomNavigationBar
@@ -36,7 +38,7 @@ fun NavigationBarScreen(
     Scaffold(
         topBar = {
             TopBar(
-                "Movies App",
+                title = LocalContext.current.getString(R.string.app_name),
                 darkMode,
                 onThemeUpdated = onThemeUpdated,
                 onSearchClick = {
