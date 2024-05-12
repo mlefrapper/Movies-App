@@ -1,11 +1,7 @@
 
-# Android Clean Architecture [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3e9bbcba7b3945f4b9ba0887b8639a00)](https://app.codacy.com/gh/AliAsadi/Android-Clean-Architecture?utm_source=github.com&utm_medium=referral&utm_content=AliAsadi/Android-Clean-Architecture&utm_campaign=Badge_Grade_Settings)
+# Android Clean Architecture
 
 A demo movie android app showcasing Clean Architecture, written in Kotlin and featuring Jetpack Compose for modern, declarative UIs. 💯🎞
-
-![image](https://github.com.mlefrapper/Android-Clean-Architecture/assets/20803775/afc6c445-8a0d-4cdc-a2de-0672be74c04a)
-
-
 
 # Features
 
@@ -14,13 +10,6 @@ A demo movie android app showcasing Clean Architecture, written in Kotlin and fe
 3. **Search functionality**: Allows users to quickly find specific information within the app.
 4. **Auto Sync**: Uses both NetworkConnectivityStream and WorkManager to ensure data is always up-to-date.
 5. **Favorites**: Users can add movies to a favorites list.
-
-## Previous Versions
-* To explore the app's earlier **XML-based UI**, check out the [xml_based_app](https://github.com.mlefrapper/Android-Clean-Architecture/tree/xml_based_app
-) branch.
-
-* For a basic version of the app **without pagination**, check out the [xml_based_basic_app](https://github.com.mlefrapper/Android-Clean-Architecture/tree/xml_based_basic_app
-) branch.
 
 ## The Motivation behind the app
 This repository was created with the intention of sharing knowledge, stepping outside of my comfort zone, and using it to implement new challenges and ideas.
